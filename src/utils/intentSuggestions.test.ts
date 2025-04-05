@@ -1,5 +1,6 @@
 import { createRecord } from "@/test/factories/createRecord"
 import getTopSuggestions from "./intentSuggestions"
+import { subDays } from "date-fns"
 
 describe("getTopSuggestions", () => {
     it("returns the top 3 most frequent intents", () => {
@@ -121,6 +122,46 @@ describe("getTopSuggestions", () => {
         ]
 
         const result = getTopSuggestions(records)
+
+        expect(result).toEqual([
+            {
+                key: "card_replacement",
+                label: "Replace my card",
+                frequency: 1,
+                avgConfidence: 0.9,
+            },
+            {
+                key: "check_balance",
+                label: "Check my balance",
+                frequency: 1,
+                avgConfidence: 0.9,
+            },
+            {
+                key: "credit_limit_increase",
+                label: "Increase credit limit",
+                frequency: 1,
+                avgConfidence: 0.9,
+            },
+        ])
+    })
+    it("filters out intents older than the specified number of days", () => {
+        const records = [
+            createRecord({
+                data: { intRec: "check_balance" },
+                createdAt: new Date().toISOString(),
+            }),
+            createRecord({
+                data: { intRec: "card_replacement" },
+                createdAt: new Date().toISOString(),
+            }),
+            createRecord({
+                data: { intRec: "credit_limit_increase" },
+                createdAt: new Date().toISOString(),
+            }),
+            createRecord({ createdAt: subDays(new Date(), 10).toISOString() }), // Ten days ago
+        ]
+
+        const result = getTopSuggestions(records, 9)
 
         expect(result).toEqual([
             {

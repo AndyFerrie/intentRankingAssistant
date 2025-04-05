@@ -3,7 +3,8 @@ import { intentLabels, IntentKey } from "@/types/intents"
 import { roundTo } from "./number"
 
 export default function getTopSuggestions(
-    records: IntentRecord[]
+    records: IntentRecord[],
+    days = 7
 ): RankedSuggestion[] {
     const count = 3
 
@@ -12,7 +13,18 @@ export default function getTopSuggestions(
         { frequency: number; confidenceSum: number }
     > = {}
 
-    for (const { data } of records) {
+    const now = Date.now()
+    const msInDay = 1000 * 60 * 60 * 24
+
+    const filteredRecords = days
+        ? records.filter((record) => {
+              const createdAt = new Date(record.createdAt).getTime()
+              const ageInDays = (now - createdAt) / msInDay
+              return ageInDays <= days!
+          })
+        : records
+
+    for (const { data } of filteredRecords) {
         const { intRec, confidence } = data
 
         if (!intentCounts[intRec]) {
