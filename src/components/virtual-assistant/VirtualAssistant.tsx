@@ -1,11 +1,19 @@
-"use client"
-
+import { getIntentSuggestions } from "@/app/actions/getIntentSuggestions"
 import VirtualAssistantBody from "./Body"
 import VirtualAssistantHeader from "./Header"
 import VirtualAssistantInput from "./Input"
 import IntentSuggestions from "./IntentSuggestions"
+import { IntentSuggestion } from "@/types/intents"
 
-export default function VirtualAssistant() {
+export default async function VirtualAssistant() {
+    const rankedSuggestions = await getIntentSuggestions()
+    const suggestions: IntentSuggestion[] = rankedSuggestions.map(
+        ({ key, label }) => ({
+            key,
+            label,
+        })
+    )
+
     return (
         <section
             role='dialog'
@@ -17,11 +25,7 @@ export default function VirtualAssistant() {
                 <VirtualAssistantBody />
                 <IntentSuggestions
                     heading='Popular queries'
-                    suggestions={[
-                        { key: "check_balance", label: "Check my balance" },
-                        { key: "fraud_report", label: "Report fraud" },
-                        { key: "card_replacement", label: "Replace my card" },
-                    ]}
+                    suggestions={suggestions}
                 />
                 <VirtualAssistantInput />
             </div>
