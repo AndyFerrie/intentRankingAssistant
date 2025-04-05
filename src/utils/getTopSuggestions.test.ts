@@ -1,5 +1,5 @@
 import { createRecord } from "@/test/factories/createRecord"
-import getTopSuggestions from "./intentSuggestions"
+import getTopSuggestions from "./getTopSuggestions"
 import { subDays } from "date-fns"
 
 describe("getTopSuggestions", () => {

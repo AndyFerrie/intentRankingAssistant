@@ -1,6 +1,6 @@
 "use server"
 
-import getTopSuggestions from "@/utils/intentSuggestions"
+import getTopSuggestions from "@/utils/getTopSuggestions"
 import rawData from "@/data/technical_assessment_chatbot_data.json"
 import { IntentRecord } from "@/types/intents"
 
