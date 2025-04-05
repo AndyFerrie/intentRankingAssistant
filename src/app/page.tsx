@@ -1,4 +1,4 @@
-import VirtualAssistant from "@/components/VirtualAssistant"
+import VirtualAssistant from "@/components/virtual-assistant/VirtualAssistant"
 
 export default function Home() {
     return (
