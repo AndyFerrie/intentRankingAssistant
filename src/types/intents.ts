@@ -30,7 +30,7 @@ export type IntentSuggestion = {
 
 export type RankedSuggestion = {
     key: IntentKey
-    label: string
+    label: IntentLabel
     frequency: number
     avgConfidence: number
 }
