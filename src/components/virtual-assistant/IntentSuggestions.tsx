@@ -1,7 +1,4 @@
-type IntentSuggestion = {
-    key: string
-    label: string
-}
+import { IntentSuggestion } from "@/types/intents"
 
 type Props = {
     heading: string
