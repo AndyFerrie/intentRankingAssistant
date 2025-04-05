@@ -27,3 +27,19 @@ export type IntentSuggestion = {
     key: IntentKey
     label: IntentLabel
 }
+
+export type IntentRecord = {
+    _id: string
+    type: "IntentRecord"
+    partyId: string
+    brand: string
+    data: {
+        intRec: IntentKey
+        confidence: number
+        endpointStatus: string
+        conversationId: string
+    }
+    createdAt: string
+    updatedAt: string
+    expireAt: string
+}
