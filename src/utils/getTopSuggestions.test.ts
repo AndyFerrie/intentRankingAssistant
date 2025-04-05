@@ -1,4 +1,4 @@
-import { createRecord } from "@/test/factories/createRecord"
+import { createRecord } from "@/tests/factories/createRecord"
 import getTopSuggestions from "./getTopSuggestions"
 import { subDays } from "date-fns"
 
