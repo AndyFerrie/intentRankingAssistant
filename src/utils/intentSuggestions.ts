@@ -1,9 +1,9 @@
-import { intentLabels, IntentKey, IntentSuggestion } from "@/types/intents"
+import { intentLabels, IntentKey, RankedSuggestion } from "@/types/intents"
 import type { IntentRecord } from "@/types/intents"
 
 export default function getTopSuggestions(
     records: IntentRecord[]
-): IntentSuggestion[] {
+): RankedSuggestion[] {
     const count = 3
     const frequencyMap: Record<string, number> = {}
 
@@ -12,14 +12,18 @@ export default function getTopSuggestions(
         frequencyMap[key] = (frequencyMap[key] || 0) + 1
     }
 
-    const sortedKeys = Object.entries(frequencyMap)
+    const topIntents = Object.entries(frequencyMap)
         .sort((a, b) => b[1] - a[1])
         .slice(0, count)
-        .map(([key]) => key)
-        .filter((key): key is IntentKey => key in intentLabels)
+        .filter(([key]) => key in intentLabels)
+        .map(([key, freq]) => ({
+            key: key as IntentKey,
+            frequency: freq,
+        }))
 
-    return sortedKeys.map((key) => ({
+    return topIntents.map(({ key, frequency }) => ({
         key,
         label: intentLabels[key],
+        frequency,
     }))
 }

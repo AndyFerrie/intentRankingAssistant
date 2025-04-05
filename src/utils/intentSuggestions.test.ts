@@ -21,14 +21,17 @@ describe("getTopSuggestions", () => {
             {
                 key: "check_balance",
                 label: "Check my balance",
+                frequency: 3,
             },
             {
                 key: "fraud_report",
                 label: "Report fraud",
+                frequency: 2,
             },
             {
                 key: "card_replacement",
                 label: "Replace my card",
+                frequency: 2,
             },
         ])
     })

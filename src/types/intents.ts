@@ -28,6 +28,12 @@ export type IntentSuggestion = {
     label: IntentLabel
 }
 
+export type RankedSuggestion = {
+    key: IntentKey
+    label: string
+    frequency: number
+}
+
 export type IntentRecord = {
     _id: string
     type: "IntentRecord"
