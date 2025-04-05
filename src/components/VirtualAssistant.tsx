@@ -1,6 +1,6 @@
 "use client"
 
-import VirtualAssistantHeader from "./VirtualAssistantHeader"
+import VirtualAssistantHeader from "./Header"
 
 export default function VirtualAssistant() {
     return (
