@@ -1,27 +1,41 @@
-import { intentLabels, IntentKey, RankedSuggestion } from "@/types/intents"
-import type { IntentRecord } from "@/types/intents"
+import type { IntentRecord, RankedSuggestion } from "@/types/intents"
+import { intentLabels, IntentKey } from "@/types/intents"
 
 export default function getTopSuggestions(
     records: IntentRecord[]
 ): RankedSuggestion[] {
     const count = 3
-    const frequencyMap: Record<string, number> = {}
 
-    for (const record of records) {
-        const key = record.data.intRec
-        frequencyMap[key] = (frequencyMap[key] || 0) + 1
+    const intentCounts: Record<
+        string,
+        { frequency: number; confidenceSum: number }
+    > = {}
+
+    for (const { data } of records) {
+        const { intRec, confidence } = data
+
+        if (!intentCounts[intRec]) {
+            intentCounts[intRec] = { frequency: 0, confidenceSum: 0 }
+        }
+
+        intentCounts[intRec].frequency += 1
+        intentCounts[intRec].confidenceSum += confidence
     }
 
-    const topIntents = Object.entries(frequencyMap)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, count)
+    const sorted = Object.entries(intentCounts)
         .filter(([key]) => key in intentLabels)
-        .map(([key, freq]) => ({
+        .map(([key, { frequency, confidenceSum }]) => ({
             key: key as IntentKey,
-            frequency: freq,
+            frequency,
+            avgConfidence: confidenceSum / frequency,
         }))
+        .sort((a, b) => {
+            if (b.frequency !== a.frequency) return b.frequency - a.frequency
+            return b.avgConfidence - a.avgConfidence
+        })
+        .slice(0, count)
 
-    return topIntents.map(({ key, frequency }) => ({
+    return sorted.map(({ key, frequency }) => ({
         key,
         label: intentLabels[key],
         frequency,

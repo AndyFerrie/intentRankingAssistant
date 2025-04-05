@@ -35,4 +35,34 @@ describe("getTopSuggestions", () => {
             },
         ])
     })
+    it("breaks ties by average confidence when frequencies are equal", () => {
+        const records = [
+            createRecord({
+                data: { intRec: "check_balance", confidence: 0.8 },
+            }),
+            createRecord({
+                data: { intRec: "check_balance", confidence: 0.9 },
+            }),
+            createRecord({
+                data: { intRec: "fraud_report", confidence: 0.95 },
+            }),
+            createRecord({
+                data: { intRec: "fraud_report", confidence: 0.99 },
+            }),
+            createRecord({
+                data: { intRec: "card_replacement", confidence: 0.88 },
+            }),
+            createRecord({
+                data: { intRec: "card_replacement", confidence: 0.9 },
+            }),
+        ]
+
+        const result = getTopSuggestions(records)
+
+        expect(result).toEqual([
+            { key: "fraud_report", label: "Report fraud", frequency: 2 },
+            { key: "card_replacement", label: "Replace my card", frequency: 2 },
+            { key: "check_balance", label: "Check my balance", frequency: 2 },
+        ])
+    })
 })
