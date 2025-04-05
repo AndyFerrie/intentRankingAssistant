@@ -1,0 +1,302 @@
+[
+  {
+    "_id": "1",
+    "type": "IntentRecord",
+    "partyId": "user_001",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "check_balance",
+      "confidence": 0.98,
+      "endpointStatus": "Success",
+      "conversationId": "conv_001"
+    },
+    "createdAt": "2025-03-24T14:30:00Z",
+    "updatedAt": "2025-03-24T14:31:00Z",
+    "expireAt": "2025-04-07T14:30:00Z"
+  },
+  {
+    "_id": "2",
+    "type": "IntentRecord",
+    "partyId": "user_002",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "fraud_report",
+      "confidence": 0.92,
+      "endpointStatus": "Success",
+      "conversationId": "conv_002"
+    },
+    "createdAt": "2025-03-25T10:15:00Z",
+    "updatedAt": "2025-03-25T10:16:00Z",
+    "expireAt": "2025-04-08T10:15:00Z"
+  },
+  {
+    "_id": "3",
+    "type": "IntentRecord",
+    "partyId": "user_003",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "check_balance",
+      "confidence": 0.97,
+      "endpointStatus": "Success",
+      "conversationId": "conv_003"
+    },
+    "createdAt": "2025-03-25T12:45:00Z",
+    "updatedAt": "2025-03-25T12:46:00Z",
+    "expireAt": "2025-04-08T12:45:00Z"
+  },
+  {
+    "_id": "4",
+    "type": "IntentRecord",
+    "partyId": "user_004",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "card_replacement",
+      "confidence": 0.85,
+      "endpointStatus": "Success",
+      "conversationId": "conv_004"
+    },
+    "createdAt": "2025-03-26T08:30:00Z",
+    "updatedAt": "2025-03-26T08:31:00Z",
+    "expireAt": "2025-04-09T08:30:00Z"
+  },
+  {
+    "_id": "5",
+    "type": "IntentRecord",
+    "partyId": "user_005",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "loan_application",
+      "confidence": 0.88,
+      "endpointStatus": "Success",
+      "conversationId": "conv_005"
+    },
+    "createdAt": "2025-03-26T15:20:00Z",
+    "updatedAt": "2025-03-26T15:21:00Z",
+    "expireAt": "2025-04-09T15:20:00Z"
+  },
+  {
+    "_id": "6",
+    "type": "IntentRecord",
+    "partyId": "user_006",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "fund_transfer",
+      "confidence": 0.95,
+      "endpointStatus": "Success",
+      "conversationId": "conv_006"
+    },
+    "createdAt": "2025-03-27T11:10:00Z",
+    "updatedAt": "2025-03-27T11:11:00Z",
+    "expireAt": "2025-04-10T11:10:00Z"
+  },
+  {
+    "_id": "7",
+    "type": "IntentRecord",
+    "partyId": "user_007",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "credit_limit_increase",
+      "confidence": 0.89,
+      "endpointStatus": "Success",
+      "conversationId": "conv_007"
+    },
+    "createdAt": "2025-03-28T09:50:00Z",
+    "updatedAt": "2025-03-28T09:51:00Z",
+    "expireAt": "2025-04-11T09:50:00Z"
+  },
+  {
+    "_id": "8",
+    "type": "IntentRecord",
+    "partyId": "user_008",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "interest_rates",
+      "confidence": 0.90,
+      "endpointStatus": "Success",
+      "conversationId": "conv_008"
+    },
+    "createdAt": "2025-03-28T11:00:00Z",
+    "updatedAt": "2025-03-28T11:01:00Z",
+    "expireAt": "2025-04-11T11:00:00Z"
+  },
+  {
+    "_id": "9",
+    "type": "IntentRecord",
+    "partyId": "user_009",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "mortgage_approval",
+      "confidence": 0.93,
+      "endpointStatus": "Success",
+      "conversationId": "conv_009"
+    },
+    "createdAt": "2025-03-28T14:10:00Z",
+    "updatedAt": "2025-03-28T14:11:00Z",
+    "expireAt": "2025-04-11T14:10:00Z"
+  },
+  {
+    "_id": "10",
+    "type": "IntentRecord",
+    "partyId": "user_010",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "open_account",
+      "confidence": 0.87,
+      "endpointStatus": "Success",
+      "conversationId": "conv_010"
+    },
+    "createdAt": "2025-03-29T09:15:00Z",
+    "updatedAt": "2025-03-29T09:16:00Z",
+    "expireAt": "2025-04-12T09:15:00Z"
+  },
+  {
+    "_id": "11",
+    "type": "IntentRecord",
+    "partyId": "user_011",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "request_statement",
+      "confidence": 0.91,
+      "endpointStatus": "Success",
+      "conversationId": "conv_011"
+    },
+    "createdAt": "2025-03-29T12:00:00Z",
+    "updatedAt": "2025-03-29T12:01:00Z",
+    "expireAt": "2025-04-12T12:00:00Z"
+  },
+  {
+    "_id": "12",
+    "type": "IntentRecord",
+    "partyId": "user_012",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "cancel_direct_debit",
+      "confidence": 0.86,
+      "endpointStatus": "Success",
+      "conversationId": "conv_012"
+    },
+    "createdAt": "2025-03-29T15:45:00Z",
+    "updatedAt": "2025-03-29T15:46:00Z",
+    "expireAt": "2025-04-12T15:45:00Z"
+  },
+  {
+    "_id": "13",
+    "type": "IntentRecord",
+    "partyId": "user_013",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "update_address",
+      "confidence": 0.88,
+      "endpointStatus": "Success",
+      "conversationId": "conv_013"
+    },
+    "createdAt": "2025-03-29T17:30:00Z",
+    "updatedAt": "2025-03-29T17:31:00Z",
+    "expireAt": "2025-04-12T17:30:00Z"
+  },
+  {
+    "_id": "14",
+    "type": "IntentRecord",
+    "partyId": "user_014",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "replace_lost_card",
+      "confidence": 0.95,
+      "endpointStatus": "Success",
+      "conversationId": "conv_014"
+    },
+    "createdAt": "2025-03-30T08:45:00Z",
+    "updatedAt": "2025-03-30T08:46:00Z",
+    "expireAt": "2025-04-13T08:45:00Z"
+  },
+  {
+    "_id": "15",
+    "type": "IntentRecord",
+    "partyId": "user_015",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "set_up_direct_debit",
+      "confidence": 0.91,
+      "endpointStatus": "Success",
+      "conversationId": "conv_015"
+    },
+    "createdAt": "2025-03-30T10:10:00Z",
+    "updatedAt": "2025-03-30T10:11:00Z",
+    "expireAt": "2025-04-13T10:10:00Z"
+  },
+  {
+    "_id": "16",
+    "type": "IntentRecord",
+    "partyId": "user_016",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "cancel_standing_order",
+      "confidence": 0.87,
+      "endpointStatus": "Success",
+      "conversationId": "conv_016"
+    },
+    "createdAt": "2025-03-30T13:25:00Z",
+    "updatedAt": "2025-03-30T13:26:00Z",
+    "expireAt": "2025-04-13T13:25:00Z"
+  },
+  {
+    "_id": "17",
+    "type": "IntentRecord",
+    "partyId": "user_017",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "apply_credit_card",
+      "confidence": 0.93,
+      "endpointStatus": "Success",
+      "conversationId": "conv_017"
+    },
+    "createdAt": "2025-03-30T15:50:00Z",
+    "updatedAt": "2025-03-30T15:51:00Z",
+    "expireAt": "2025-04-13T15:50:00Z"
+  },
+  {
+    "_id": "18",
+    "type": "IntentRecord",
+    "partyId": "user_018",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "update_phone_number",
+      "confidence": 0.89,
+      "endpointStatus": "Success",
+      "conversationId": "conv_018"
+    },
+    "createdAt": "2025-03-30T18:20:00Z",
+    "updatedAt": "2025-03-30T18:21:00Z",
+    "expireAt": "2025-04-13T18:20:00Z"
+  },
+  {
+    "_id": "19",
+    "type": "IntentRecord",
+    "partyId": "user_019",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "loan_repayment_schedule",
+      "confidence": 0.94,
+      "endpointStatus": "Success",
+      "conversationId": "conv_019"
+    },
+    "createdAt": "2025-03-30T20:10:00Z",
+    "updatedAt": "2025-03-30T20:11:00Z",
+    "expireAt": "2025-04-13T20:10:00Z"
+  },
+  {
+    "_id": "20",
+    "type": "IntentRecord",
+    "partyId": "user_020",
+    "brand": "Lloyds Bank",
+    "data": {
+      "intRec": "dispute_transaction",
+      "confidence": 0.90,
+      "endpointStatus": "Success",
+      "conversationId": "conv_020"
+    },
+    "createdAt": "2025-03-30T22:35:00Z",
+    "updatedAt": "2025-03-30T22:36:00Z",
+    "expireAt": "2025-04-13T22:35:00Z"
+  }
+]
