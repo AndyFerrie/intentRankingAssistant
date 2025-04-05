@@ -208,4 +208,9 @@ describe("getTopSuggestions", () => {
 
         expect(result).toEqual([])
     })
+    it("returns an empty array if given no intent records", () => {
+        const result = getTopSuggestions([])
+
+        expect(result).toEqual([])
+    })
 })
