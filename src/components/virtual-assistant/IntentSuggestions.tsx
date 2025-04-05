@@ -6,6 +6,8 @@ type Props = {
 }
 
 export default function IntentSuggestions({ heading, suggestions }: Props) {
+    if (suggestions.length === 0) return null
+
     return (
         <section className='px-4 py-3'>
             <h2 className='text-sm font-semibold text-gray-600 mb-2'>
