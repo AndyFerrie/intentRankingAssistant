@@ -4,6 +4,7 @@ import type { IntentRecord } from "@/types/intents"
 export default function getTopSuggestions(
     records: IntentRecord[]
 ): IntentSuggestion[] {
+    const count = 3
     const frequencyMap: Record<string, number> = {}
 
     for (const record of records) {
@@ -13,7 +14,7 @@ export default function getTopSuggestions(
 
     const sortedKeys = Object.entries(frequencyMap)
         .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
+        .slice(0, count)
         .map(([key]) => key)
         .filter((key): key is IntentKey => key in intentLabels)
 
