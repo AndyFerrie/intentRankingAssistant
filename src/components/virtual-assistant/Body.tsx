@@ -1,6 +1,6 @@
 export default function VirtualAssistantBody() {
     return (
-        <div className='h-64 overflow-y-auto p-4 bg-gray-50 text-sm text-gray-800'>
+        <div className='h-72 overflow-y-auto p-4 bg-gray-50 text-sm text-gray-800'>
             <div className='flex items-end space-x-2'>
                 {/* Lloyds Horse Logo */}
                 <div className='flex-shrink-0 mt-1'>
