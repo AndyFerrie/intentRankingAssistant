@@ -1,7 +1,9 @@
 import { IntentRecord } from "@/types/intents"
 
 export function createRecord(
-    overrides: Partial<IntentRecord> = {}
+    overrides: Partial<Omit<IntentRecord, "data">> & {
+        data?: Partial<IntentRecord["data"]>
+    } = {}
 ): IntentRecord {
     const defaultRecord: IntentRecord = {
         _id: "1",
@@ -16,7 +18,7 @@ export function createRecord(
         },
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        expireAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // +7 days
+        expireAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
     }
 
     return {
@@ -24,7 +26,7 @@ export function createRecord(
         ...overrides,
         data: {
             ...defaultRecord.data,
-            ...overrides.data,
+            ...(overrides.data ?? {}),
         },
     }
 }
