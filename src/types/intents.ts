@@ -32,6 +32,7 @@ export type RankedSuggestion = {
     key: IntentKey
     label: string
     frequency: number
+    avgConfidence: number
 }
 
 export type IntentRecord = {

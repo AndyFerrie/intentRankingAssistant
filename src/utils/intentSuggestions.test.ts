@@ -22,16 +22,19 @@ describe("getTopSuggestions", () => {
                 key: "check_balance",
                 label: "Check my balance",
                 frequency: 3,
+                avgConfidence: 0.9,
             },
             {
                 key: "fraud_report",
                 label: "Report fraud",
                 frequency: 2,
+                avgConfidence: 0.9,
             },
             {
                 key: "card_replacement",
                 label: "Replace my card",
                 frequency: 2,
+                avgConfidence: 0.9,
             },
         ])
     })
@@ -60,9 +63,24 @@ describe("getTopSuggestions", () => {
         const result = getTopSuggestions(records)
 
         expect(result).toEqual([
-            { key: "fraud_report", label: "Report fraud", frequency: 2 },
-            { key: "card_replacement", label: "Replace my card", frequency: 2 },
-            { key: "check_balance", label: "Check my balance", frequency: 2 },
+            {
+                key: "fraud_report",
+                label: "Report fraud",
+                frequency: 2,
+                avgConfidence: 0.97,
+            },
+            {
+                key: "card_replacement",
+                label: "Replace my card",
+                frequency: 2,
+                avgConfidence: 0.89,
+            },
+            {
+                key: "check_balance",
+                label: "Check my balance",
+                frequency: 2,
+                avgConfidence: 0.85,
+            },
         ])
     })
 })

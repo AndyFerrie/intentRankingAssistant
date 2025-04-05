@@ -1,5 +1,6 @@
 import type { IntentRecord, RankedSuggestion } from "@/types/intents"
 import { intentLabels, IntentKey } from "@/types/intents"
+import { roundTo } from "./number"
 
 export default function getTopSuggestions(
     records: IntentRecord[]
@@ -35,9 +36,10 @@ export default function getTopSuggestions(
         })
         .slice(0, count)
 
-    return sorted.map(({ key, frequency }) => ({
+    return sorted.map(({ key, frequency, avgConfidence }) => ({
         key,
         label: intentLabels[key],
         frequency,
+        avgConfidence: roundTo(avgConfidence),
     }))
 }
