@@ -32,7 +32,9 @@ export default function getTopSuggestions(
         }))
         .sort((a, b) => {
             if (b.frequency !== a.frequency) return b.frequency - a.frequency
-            return b.avgConfidence - a.avgConfidence
+            if (b.avgConfidence !== a.avgConfidence)
+                return b.avgConfidence - a.avgConfidence
+            return a.key.localeCompare(b.key)
         })
         .slice(0, count)
 
