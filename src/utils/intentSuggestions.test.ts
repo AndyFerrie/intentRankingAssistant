@@ -184,4 +184,18 @@ describe("getTopSuggestions", () => {
             },
         ])
     })
+    it("returns fewer than 3 intents if less than 3 match the filter", () => {
+        const records = [createRecord(), createRecord(), createRecord()]
+
+        const result = getTopSuggestions(records)
+
+        expect(result).toEqual([
+            {
+                key: "check_balance",
+                label: "Check my balance",
+                frequency: 3,
+                avgConfidence: 0.9,
+            },
+        ])
+    })
 })
