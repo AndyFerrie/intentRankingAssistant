@@ -8,6 +8,9 @@ type Props = {
 export default function IntentSuggestions({ heading, suggestions }: Props) {
     if (suggestions.length === 0) return null
 
+    // Limit to 3 suggestions as a safeguard against unexpected input
+    const limitedSuggestions = suggestions.slice(0, 3)
+
     return (
         <section className='px-4 py-3'>
             <h2 className='text-sm font-semibold text-gray-600 mb-2'>
@@ -15,7 +18,7 @@ export default function IntentSuggestions({ heading, suggestions }: Props) {
             </h2>
 
             <div className='flex flex-wrap gap-2'>
-                {suggestions.map((suggestion) => (
+                {limitedSuggestions.map((suggestion) => (
                     <button
                         key={suggestion.key}
                         type='button'
