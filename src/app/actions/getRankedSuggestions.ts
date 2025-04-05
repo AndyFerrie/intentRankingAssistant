@@ -9,6 +9,6 @@ import { IntentRecord } from "@/types/intents"
 // In production, we'd use runtime validation (e.g. Zod) to enforce this safely.
 const data = rawData as IntentRecord[]
 
-export async function getIntentSuggestions() {
+export async function getRankedSuggestions() {
     return getTopSuggestions(data)
 }

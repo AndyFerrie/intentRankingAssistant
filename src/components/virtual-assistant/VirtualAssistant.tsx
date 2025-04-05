@@ -1,4 +1,4 @@
-import { getIntentSuggestions } from "@/app/actions/getIntentSuggestions"
+import { getRankedSuggestions } from "@/app/actions/getRankedSuggestions"
 import VirtualAssistantBody from "./Body"
 import VirtualAssistantHeader from "./Header"
 import VirtualAssistantInput from "./Input"
@@ -6,7 +6,7 @@ import IntentSuggestions from "./IntentSuggestions"
 import { IntentSuggestion } from "@/types/intents"
 
 export default async function VirtualAssistant() {
-    const rankedSuggestions = await getIntentSuggestions()
+    const rankedSuggestions = await getRankedSuggestions()
     const suggestions: IntentSuggestion[] = rankedSuggestions.map(
         ({ key, label }) => ({
             key,
