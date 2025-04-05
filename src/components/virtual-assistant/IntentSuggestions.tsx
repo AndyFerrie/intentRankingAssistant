@@ -5,10 +5,10 @@ type IntentSuggestion = {
 
 type Props = {
     heading: string
-    intents: IntentSuggestion[]
+    suggestions: IntentSuggestion[]
 }
 
-export default function IntentSuggestions({ heading, intents }: Props) {
+export default function IntentSuggestions({ heading, suggestions }: Props) {
     return (
         <section className='px-4 py-3'>
             <h2 className='text-sm font-semibold text-gray-600 mb-2'>
@@ -16,13 +16,13 @@ export default function IntentSuggestions({ heading, intents }: Props) {
             </h2>
 
             <div className='flex flex-wrap gap-2'>
-                {intents.map((intent) => (
+                {suggestions.map((suggestion) => (
                     <button
-                        key={intent.key}
+                        key={suggestion.key}
                         type='button'
                         className='border border-green-700 text-green-700 rounded-full px-4 py-1 text-sm font-medium hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600'
                     >
-                        {intent.label}
+                        {suggestion.label}
                     </button>
                 ))}
             </div>
