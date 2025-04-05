@@ -13,7 +13,6 @@ export default function VirtualAssistant() {
             <div className='w-[320px] shadow-lg border bg-white overflow-hidden'>
                 <VirtualAssistantHeader title='Chat' />
                 <VirtualAssistantBody />
-                <div className='p4 text-sm-text-gray-700'>Chat goes here</div>
             </div>
         </section>
     )
