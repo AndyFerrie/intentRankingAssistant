@@ -1,59 +1,92 @@
-import type { IntentRecord, RankedSuggestion } from "@/types/intents"
-import { intentLabels, IntentKey } from "@/types/intents"
+import {
+    IntentKey,
+    intentLabels,
+    IntentRecord,
+    RankedSuggestion,
+} from "@/types/intents"
 import { roundTo } from "./number"
 
+// Constants for readability and maintainability
+const MS_IN_DAY = 1000 * 60 * 60 * 24
+const COUNT = 3
+
+/**
+ * Filters records to only include those created within the given number of days.
+ */
+function filterByDays(records: IntentRecord[], days: number): IntentRecord[] {
+    if (!days) return records
+
+    const now = Date.now()
+    return records.filter((record) => {
+        const createdAt = new Date(record.createdAt).getTime()
+        const ageInDays = (now - createdAt) / MS_IN_DAY
+        return ageInDays <= days
+    })
+}
+
+/**
+ * Aggregates frequency and confidence totals for each intent key.
+ */
+function buildIntentStats(records: IntentRecord[]) {
+    const stats: Record<string, { frequency: number; confidenceSum: number }> =
+        {}
+
+    for (const { data } of records) {
+        const { intRec, confidence } = data
+
+        // Create a tracking object for this intent if missing
+        if (!stats[intRec]) {
+            stats[intRec] = { frequency: 0, confidenceSum: 0 }
+        }
+
+        // Increment frequency and sum confidence
+        stats[intRec].frequency += 1
+        stats[intRec].confidenceSum += confidence
+    }
+
+    return stats
+}
+
+/**
+ * Returns the top 3 most frequent intents from recent records,
+ * breaking ties by average confidence, then alphabetically by intent key.
+ */
 export default function getTopSuggestions(
     records: IntentRecord[],
     days = 7
 ): RankedSuggestion[] {
-    const count = 3
+    // Step 1: Filter to recent records
+    const filteredRecords = filterByDays(records, days)
 
-    const intentCounts: Record<
-        string,
-        { frequency: number; confidenceSum: number }
-    > = {}
+    // Step 2: Count frequency and total confidence
+    const intentStats = buildIntentStats(filteredRecords)
 
-    const now = Date.now()
-    const msInDay = 1000 * 60 * 60 * 24
-
-    const filteredRecords = days
-        ? records.filter((record) => {
-              const createdAt = new Date(record.createdAt).getTime()
-              const ageInDays = (now - createdAt) / msInDay
-              return ageInDays <= days!
-          })
-        : records
-
-    for (const { data } of filteredRecords) {
-        const { intRec, confidence } = data
-
-        if (!intentCounts[intRec]) {
-            intentCounts[intRec] = { frequency: 0, confidenceSum: 0 }
-        }
-
-        intentCounts[intRec].frequency += 1
-        intentCounts[intRec].confidenceSum += confidence
-    }
-
-    const sorted = Object.entries(intentCounts)
-        .filter(([key]) => key in intentLabels)
-        .map(([key, { frequency, confidenceSum }]) => ({
-            key: key as IntentKey,
-            frequency,
-            avgConfidence: confidenceSum / frequency,
-        }))
-        .sort((a, b) => {
-            if (b.frequency !== a.frequency) return b.frequency - a.frequency
-            if (b.avgConfidence !== a.avgConfidence)
-                return b.avgConfidence - a.avgConfidence
-            return a.key.localeCompare(b.key)
-        })
-        .slice(0, count)
-
-    return sorted.map(({ key, frequency, avgConfidence }) => ({
-        key,
-        label: intentLabels[key],
-        frequency,
-        avgConfidence: roundTo(avgConfidence),
-    }))
+    // Step 3: Convert to enriched, sorted suggestion list
+    return (
+        Object.entries(intentStats)
+            // Ignore unknown intent keys
+            .filter(([key]) => key in intentLabels)
+            .map(([key, { frequency, confidenceSum }]) => ({
+                key: key as IntentKey,
+                frequency,
+                avgConfidence: confidenceSum / frequency,
+            }))
+            // Sort by frequency, then avg confidence, then alphabetically
+            .sort((a, b) => {
+                if (b.frequency !== a.frequency)
+                    return b.frequency - a.frequency
+                if (b.avgConfidence !== a.avgConfidence)
+                    return b.avgConfidence - a.avgConfidence
+                return a.key.localeCompare(b.key)
+            })
+            // Step 4: Limit to top 3
+            .slice(0, COUNT)
+            // Step 5: Add human-readable label and round avgConfidence
+            .map(({ key, frequency, avgConfidence }) => ({
+                key,
+                label: intentLabels[key],
+                frequency,
+                avgConfidence: roundTo(avgConfidence),
+            }))
+    )
 }
