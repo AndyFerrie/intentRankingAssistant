@@ -19,7 +19,7 @@ It demonstrates intent ranking, type-safe data handling, clean and accessible UI
 -   `src/app/actions/getRankedSuggestions.ts` — Server action returning the top 3 intents
 -   `src/utils/getTopSuggestions.ts` — Pure function that ranks intents by frequency and confidence
 -   `src/components/virtual-assistant/` — Self-contained UI with modular components (`Header`, `Body`, `Input`, `IntentSuggestions`)
--   `src/types/intents.ts` — Centralized intent schema with `IntentKey` and `IntentLabel` types
+-   `src/types/intents.ts` — Centralised intent schema with `IntentKey` and `IntentLabel` types
 -   `src/data/technical_assessment_chatbot_data.json` — Mock data source
 
 Code is structured for clarity and testability, with logic, UI, types, and data clearly separated.
@@ -32,11 +32,11 @@ Code is structured for clarity and testability, with logic, UI, types, and data 
 -   Kept the input and message display non-functional to focus on ranking logic
 -   Used Tailwind CSS for fast, utility-first styling
 -   Prioritised accessibility with semantic HTML, role="dialog", and ARIA labels
--   Guarded against excess data — only the top 3 suggestions are ever shown
+-   Guarded against excess input — only the top 3 suggestions are ever displayed
 
 ---
 
-## 3. ✅ Testing
+## 3. 🧪 Testing
 
 Unit tests were written using a TDD approach, supported by semantic commits and a `createRecord` factory.
 
@@ -74,7 +74,7 @@ While this POC reads and processes the full dataset to calculate top intents, I 
 -   An on-demand Cloud Function that reads cached daily results and returns the top X intents
 -   A scheduled Cloud Task that precomputes and stores rolling 7/30-day leaderboards
 
-This approach centralizes business logic, reduces runtime computation, avoids repeated full-data scans, and ensures consistent results across platforms.
+This approach centralises business logic, reduces runtime computation, avoids repeated full-data scans, and ensures consistent results across platforms.
 
 ### 🏗️ Production Recommendation (Google Cloud)
 
@@ -93,8 +93,8 @@ This setup avoids expensive on-demand computation and ensures fast, predictable 
 
 ## 5. 🔮 Future Improvements
 
--   🔐 Add authentication awareness, allowing personalized suggestions for signed-in users
--   🌍 Localize suggestion labels for multilingual audiences
+-   🔐 Add authentication awareness, allowing personalised suggestions for signed-in users
+-   🌍 Localise suggestion labels for multilingual audiences
 -   📊 Track click-through rates to measure suggestion effectiveness over time
 -   ♿ Enhance accessibility, including keyboard navigation, screen reader support, and focus states
 -   🧪 Add end-to-end tests for user flows using Playwright or Cypress
@@ -116,5 +116,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 🧪 To Run Tests
 
 ```bash
-npm run test
+npm test
 ```
