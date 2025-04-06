@@ -9,8 +9,8 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-    title: "Intent Flow",
-    description: "Virtual Assistant POC",
+    title: "Intent Suggestions POC",
+    description: "Demo of Virtual Assistant UI with Intent Suggestions",
 }
 
 export default function RootLayout({
