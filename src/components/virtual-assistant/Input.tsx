@@ -1,6 +1,6 @@
 export default function VirtualAssistantInput() {
     return (
-        <form className='flex items-center border-t px-2 py-1 bg-white'>
+        <form className='flex items-center border-t border-gray-400 px-2 py-1 bg-white'>
             <input
                 type='text'
                 placeholder='Type your message'
