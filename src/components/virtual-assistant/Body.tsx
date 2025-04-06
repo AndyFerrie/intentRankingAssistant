@@ -1,6 +1,6 @@
 export default function VirtualAssistantBody() {
     return (
-        <div className='h-72 overflow-y-auto p-4 bg-gray-50 text-sm text-gray-800'>
+        <div className='h-72 overflow-y-auto p-4 bg-white text-sm text-gray-800'>
             <div className='flex items-end space-x-2'>
                 {/* Lloyds Horse Logo */}
                 <div className='flex-shrink-0 mt-1'>
@@ -68,7 +68,7 @@ export default function VirtualAssistantBody() {
                 <p
                     role='status'
                     aria-live='polite'
-                    className='whitespace-pre-line bg-white border rounded-lg p-3'
+                    className='text-xs whitespace-pre-line bg-white text-gray-600 border border-gray-400 rounded-xl rounded-bl-none p-3 w-3/4'
                 >
                     {`Hello, I’m your virtual assistant.
 
