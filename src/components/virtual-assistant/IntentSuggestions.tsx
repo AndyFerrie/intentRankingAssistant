@@ -22,7 +22,7 @@ export default function IntentSuggestions({ heading, suggestions }: Props) {
                     <button
                         key={suggestion.key}
                         type='button'
-                        className='border border-green-700 text-green-700 rounded-full px-4 py-1 text-sm font-medium hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600'
+                        className='border border-lloyds-green text-lloyds-green rounded-full px-4 py-1 text-sm font-medium hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600'
                     >
                         {suggestion.label}
                     </button>
