@@ -20,7 +20,7 @@ export default async function VirtualAssistant() {
             aria-label='Virtual Assistant'
             className='flex justify-center items-center min-h-screen'
         >
-            <div className='w-[320px] shadow-lg border bg-white overflow-hidden'>
+            <div className='w-[320px] shadow-lg border border-gray-400 bg-white overflow-hidden'>
                 <VirtualAssistantHeader title='Chat' />
                 <VirtualAssistantBody />
                 <IntentSuggestions
