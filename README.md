@@ -1,6 +1,6 @@
 # 💬 Intent Ranking Assistant
 
-This project is a proof-of-concept (POC) that surfaces the top 3 chatbot intents from the last X days (defaulting to 1 month), helping users fast-track common questions.
+This project is a proof-of-concept (POC) that surfaces the top 3 chatbot intents from the last X days (defaulting to 30 days), helping users fast-track common questions.
 
 It demonstrates intent ranking, type-safe data handling, clean and accessible UI, initial test coverage, and considerations for how the design could scale in production.
 
@@ -11,6 +11,19 @@ It demonstrates intent ranking, type-safe data handling, clean and accessible UI
 -   ✅ Edge case handling (ties, empty set, fewer than 3 intents)
 -   ✅ Clean, accessible UI built with Tailwind CSS
 -   ✅ Tested logic with factories and clear separation of concerns
+
+## 🖼️ Preview
+
+<div style="display: flex; gap: 16px;">
+  <div style="text-align: center;">
+    <p><strong>With Suggestions</strong></p>
+    <img src="./public/screenshots/suggestions.png" alt="With Suggestions" width="300" />
+  </div>
+  <div style="text-align: center;">
+    <p><strong>No Suggestions</strong></p>
+    <img src="./public/screenshots/empty.png" alt="No Suggestions" width="300" />
+  </div>
+</div>
 
 ---
 
@@ -31,8 +44,8 @@ Code is structured for clarity and testability, with logic, UI, types, and data 
 -   Split the assistant UI into semantic, reusable components
 -   Kept the input and message display non-functional to focus on ranking logic
 -   Used Tailwind CSS for fast, utility-first styling
--   Prioritised accessibility with semantic HTML, role="dialog", and ARIA labels
--   Guarded against excess input — only the top 3 suggestions are ever displayed
+-   Prioritised accessibility with semantic HTML, `role="dialog"`, and ARIA labels
+-   Guarded against excess input — `IntentSuggestions` component includes configurable `limit` (default: 3)
 
 ---
 
