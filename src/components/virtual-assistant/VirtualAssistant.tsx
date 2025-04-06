@@ -20,13 +20,18 @@ export default async function VirtualAssistant() {
             aria-label='Virtual Assistant'
             className='flex justify-center items-center min-h-screen'
         >
-            <div className='w-[320px] shadow-lg border border-gray-400 bg-white overflow-hidden'>
+            <div className='w-[320px] h-[500px] flex flex-col shadow-lg border border-gray-400 bg-white overflow-hidden'>
                 <VirtualAssistantHeader title='Chat' />
-                <VirtualAssistantBody />
-                <IntentSuggestions
-                    heading='Popular queries'
-                    suggestions={suggestions}
-                />
+                <div className='flex-1 overflow-y-auto'>
+                    <VirtualAssistantBody />
+                </div>
+                {/* Avoid rendering the component (and extra spacing) if no suggestions are available */}
+                {suggestions.length > 0 && (
+                    <IntentSuggestions
+                        heading='Popular queries'
+                        suggestions={suggestions}
+                    />
+                )}
                 <VirtualAssistantInput />
             </div>
         </section>
