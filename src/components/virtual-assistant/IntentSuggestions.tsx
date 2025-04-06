@@ -3,13 +3,19 @@ import { IntentSuggestion } from "@/types/intents"
 type Props = {
     heading: string
     suggestions: IntentSuggestion[]
+    limit?: number // Optional, defaults to 3
 }
 
-export default function IntentSuggestions({ heading, suggestions }: Props) {
+export default function IntentSuggestions({
+    heading,
+    suggestions,
+    limit = 3,
+}: Props) {
+    // Safeguard: return nothing if suggestions are empty
     if (suggestions.length === 0) return null
 
-    // Limit to 3 suggestions as a safeguard against unexpected input
-    const limitedSuggestions = suggestions.slice(0, 3)
+    // Safegaurd: Limit to displayed suggestions in case of unexpected input
+    const limitedSuggestions = suggestions.slice(0, limit)
 
     return (
         <section className='px-4 py-3'>
