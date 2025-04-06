@@ -64,7 +64,8 @@ export default function getTopSuggestions(
     // Step 3: Convert to enriched, sorted suggestion list
     return (
         Object.entries(intentStats)
-            // Ignore unknown intent keys
+            // Defensive guard: TypeScript enforces IntentKey at compile time,
+            // but this ensures only valid keys are used at runtime
             .filter(([key]) => key in intentLabels)
             .map(([key, { frequency, confidenceSum }]) => ({
                 key: key as IntentKey,
