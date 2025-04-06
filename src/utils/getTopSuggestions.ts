@@ -53,7 +53,7 @@ function buildIntentStats(records: IntentRecord[]) {
  */
 export default function getTopSuggestions(
     records: IntentRecord[],
-    days = 7
+    days = 30
 ): RankedSuggestion[] {
     // Step 1: Filter to recent records
     const filteredRecords = filterByDays(records, days)

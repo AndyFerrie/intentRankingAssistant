@@ -1,6 +1,6 @@
 # 💬 Intent Ranking Assistant
 
-This project is a proof-of-concept (POC) that surfaces the top 3 chatbot intents from the last X days (defaulting to the past week), helping users fast-track common questions.
+This project is a proof-of-concept (POC) that surfaces the top 3 chatbot intents from the last X days (defaulting to 1 month), helping users fast-track common questions.
 
 It demonstrates intent ranking, type-safe data handling, clean and accessible UI, initial test coverage, and considerations for how the design could scale in production.
 
