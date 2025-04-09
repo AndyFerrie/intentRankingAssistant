@@ -12,7 +12,7 @@ export default function IntentSuggestions({
     limit = 3,
 }: Props) {
     // Safeguard: return nothing if suggestions are empty
-    if (suggestions.length === 0) return null
+    if (suggestions.length === 0 || limit < 1) return null
 
     // Safegaurd: Limit to displayed suggestions in case of unexpected input
     const limitedSuggestions = suggestions.slice(0, limit)

@@ -34,4 +34,14 @@ describe("IntentSuggestions", () => {
         )
         expect(container).toBeEmptyDOMElement()
     })
+    it("renders nothing if limit set to less than 1", () => {
+        const { container } = render(
+            <IntentSuggestions
+                heading='Popular queries'
+                suggestions={mockSuggestions}
+                limit={0}
+            />
+        )
+        expect(container).toBeEmptyDOMElement()
+    })
 })
