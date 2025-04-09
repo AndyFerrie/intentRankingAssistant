@@ -201,7 +201,7 @@ describe("getTopSuggestions", () => {
     it("returns an empty array if no intents match the filter", () => {
         const oldRecord = createRecord({
             data: { intRec: "check_balance", confidence: 0.9 },
-            createdAt: subDays(new Date(), 30).toISOString(), // 30 days ago
+            createdAt: subDays(new Date(), 35).toISOString(), // 35 days ago
         })
 
         const result = getTopSuggestions([oldRecord])
