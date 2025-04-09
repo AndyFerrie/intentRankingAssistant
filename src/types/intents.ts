@@ -1,3 +1,35 @@
+// {
+//     "_id": "1",
+//     "type": "IntentRecord",
+//     "partyId": "user_001",
+//     "brand": "Lloyds Bank",
+//     "data": {
+//         "intRec": "check_balance",
+//         "confidence": 0.98,
+//         "endpointStatus": "Success",
+//         "conversationId": "conv_001"
+//     },
+//     "createdAt": "2025-03-24T14:30:00Z",
+//     "updatedAt": "2025-03-24T14:31:00Z",
+//     "expireAt": "2025-04-07T14:30:00Z"
+// }
+
+export type IntentRecord = {
+    _id: string
+    type: "IntentRecord"
+    partyId: string
+    brand: string
+    data: {
+        intRec: IntentKey
+        confidence: number
+        endpointStatus: string
+        conversationId: string
+    }
+    createdAt: string
+    updatedAt: string
+    expireAt: string
+}
+
 export const intentLabels = {
     check_balance: "Check my balance",
     fraud_report: "Report fraud",
@@ -33,20 +65,4 @@ export type RankedSuggestion = {
     label: IntentLabel
     frequency: number
     avgConfidence: number
-}
-
-export type IntentRecord = {
-    _id: string
-    type: "IntentRecord"
-    partyId: string
-    brand: string
-    data: {
-        intRec: IntentKey
-        confidence: number
-        endpointStatus: string
-        conversationId: string
-    }
-    createdAt: string
-    updatedAt: string
-    expireAt: string
 }
